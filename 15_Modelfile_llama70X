@@ -1,0 +1,15 @@
+FROM llama3.3:70b
+
+TEMPLATE """Below are some instructions that describe some task. Write responses that appropriately completes the task.{{ if .Prompt }}
+
+### Instruction:
+{{ .Prompt }}
+
+{{ end }}### Response:
+{{ .Response }}<|end_of_text|>"""
+PARAMETER num_ctx 25820
+PARAMETER stop "<|start_header_id|>"
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|end_header_id|>"
+PARAMETER stop "<|end_of_text|>"
+PARAMETER stop "<|reserved_special_token_"
